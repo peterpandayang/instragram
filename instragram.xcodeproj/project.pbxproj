@@ -26,6 +26,7 @@
 		8539B09F1E3367480097B4BE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8539B09D1E3367480097B4BE /* Parse.framework */; };
 		8539B0A11E3368D30097B4BE /* signUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539B0A01E3368D30097B4BE /* signUpVC.swift */; };
 		8539B0A31E3368E70097B4BE /* resetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539B0A21E3368E70097B4BE /* resetPasswordVC.swift */; };
+		854FEAD51E349935000BDC61 /* pp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 854FEAD41E349935000BDC61 /* pp.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		8539B09D1E3367480097B4BE /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8539B0A01E3368D30097B4BE /* signUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpVC.swift; sourceTree = "<group>"; };
 		8539B0A21E3368E70097B4BE /* resetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resetPasswordVC.swift; sourceTree = "<group>"; };
+		854FEAD41E349935000BDC61 /* pp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pp.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		8539B0721E3361AA0097B4BE /* instragram */ = {
 			isa = PBXGroup;
 			children = (
+				854FEAD41E349935000BDC61 /* pp.jpg */,
 				8539B0851E3364E90097B4BE /* signInVC.swift */,
 				8539B0A01E3368D30097B4BE /* signUpVC.swift */,
 				8539B0A21E3368E70097B4BE /* resetPasswordVC.swift */,
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8539B07E1E3361AA0097B4BE /* LaunchScreen.storyboard in Resources */,
+				854FEAD51E349935000BDC61 /* pp.jpg in Resources */,
 				8539B07B1E3361AA0097B4BE /* Assets.xcassets in Resources */,
 				8539B0791E3361AA0097B4BE /* Main.storyboard in Resources */,
 			);
