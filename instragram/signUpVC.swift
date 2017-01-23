@@ -8,7 +8,7 @@
 
 import UIKit
 
-class signUpVC: UIViewController {
+class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // profile image
     @IBOutlet weak var avaImg: UIImageView!
@@ -17,6 +17,7 @@ class signUpVC: UIViewController {
     @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var repeatPassword: UITextField!
+    @IBOutlet weak var emailTxt: UITextField!
     
     @IBOutlet weak var fullnameTxt: UITextField!
     @IBOutlet weak var bioTxt: UITextField!
@@ -34,6 +35,7 @@ class signUpVC: UIViewController {
     
     // keyBoard frame size
     var keyboard = CGRect()
+    
     
     // default func
     override func viewDidLoad() {
@@ -54,6 +56,33 @@ class signUpVC: UIViewController {
         self.view.isUserInteractionEnabled = true
         self.view.addGestureRecognizer(hideTap)
         
+        // round ava
+        avaImg.layer.cornerRadius = avaImg.frame.size.width / 2
+        avaImg.clipsToBounds = true
+        
+        // declare select image tap
+        let avaTap = UITapGestureRecognizer(target: self, action: #selector(loadImg))
+        avaTap.numberOfTapsRequired = 1
+        avaImg.isUserInteractionEnabled = true
+        avaImg.addGestureRecognizer(avaTap)
+        
+    }
+    
+    
+    // call picker to select image
+    func loadImg(recognizer: UITapGestureRecognizer){
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+    }
+    
+    
+    // connect selected image to our ImageView
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        avaImg.image = info[UIImagePickerControllerEditedImage] as? UIImage
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -61,6 +90,7 @@ class signUpVC: UIViewController {
     func hideKeyboardTap(recogonizer: UITapGestureRecognizer){
         self.view.endEditing(true)
     }
+    
     
     // show keyboard function
     func showKeyboard(notification: Notification){
@@ -75,6 +105,7 @@ class signUpVC: UIViewController {
         
     }
     
+    
     // hide keyboard function
     func hideKeyboard(notification: Notification){
         
@@ -83,10 +114,12 @@ class signUpVC: UIViewController {
         
     }
     
+    
     // click sign up
     @IBAction func signUpBtn_click(_ sender: Any) {
         print("singup pressed")
     }
+    
     
     // click cancel
     @IBAction func cancelBtn_click(_ sender: Any) {
