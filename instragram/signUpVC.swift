@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+
 
 class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -109,7 +111,7 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     // hide keyboard function
     func hideKeyboard(notification: Notification){
         
-        // move up UI
+        // move down UI
         self.scrollView.frame.size.height = self.view.frame.height
         
     }
@@ -118,6 +120,62 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     // click sign up
     @IBAction func signUpBtn_click(_ sender: Any) {
         print("singup pressed")
+        
+        // dismiss keyboard
+        self.view.endEditing(true)
+        
+        // if fields are empty
+        if (usernameTxt.text!.isEmpty || passwordTxt.text!.isEmpty || repeatPassword.text!.isEmpty || emailTxt.text!.isEmpty || bioTxt.text!.isEmpty || webTxt.text!.isEmpty) {
+            
+            // alert message
+            let alert = UIAlertController(title: "PLEASE", message: "fill all fields", preferredStyle: UIAlertControllerStyle.alert)
+            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        
+        // if passwords are different
+        if passwordTxt.text != repeatPassword.text {
+            
+            // alert message
+            let alert = UIAlertController(title: "PASSWORDS", message: "do not match", preferredStyle: UIAlertControllerStyle.alert)
+            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        
+        // send data to server to related columns
+        let user = PFUser()
+        user.username = usernameTxt.text?.lowercased()
+        user.email = emailTxt.text?.lowercased()
+        user.password = passwordTxt.text
+        user["fullname"] = fullnameTxt.text?.lowercased()
+        user["bio"] = bioTxt.text
+        user["web"] = webTxt.text?.lowercased()
+        
+        // in edit profile it's gonna be assigned
+        user["tel"] = ""
+        user["gender"] = ""
+        
+        
+        // convert our image for sending to the server
+        let avaData = UIImageJPEGRepresentation(avaImg.image!, 0.5)
+        let avaFile = PFFile(name: "ava.jpg", data: avaData!)
+        user["ava"] = avaFile
+        
+        // save data in server
+        user.signUpInBackground { (success, error: Error?) in
+            if success {
+                print("registered")
+            }
+            else {
+                print(error?.localizedDescription as Any)
+            }
+        }
+        
+        
     }
     
     
