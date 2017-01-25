@@ -201,6 +201,38 @@
             </objects>
             <point key="canvasLocation" x="1023.125" y="147.85166666666666"/>
         </scene>
+        <!--Item 1-->
+        <scene sceneID="cmH-DX-TMg">
+            <objects>
+                <viewController id="MyS-xR-O9W" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Ky-Op-yXD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="GQO-Js-btP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PGN-zO-w43" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1926" y="148"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="lc0-AD-fJ3">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBar" id="ccB-KT-s0a" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="TWq-aK-X9f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="MyS-xR-O9W" kind="relationship" relationship="viewControllers" id="B0x-lP-go2"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xkA-QC-5wA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1475" y="148"/>
+        </scene>
     </scenes>
     <resources>
         <image name="pp.jpg" width="626" height="626"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class signInVC: UIViewController {
     
@@ -28,6 +29,37 @@ class signInVC: UIViewController {
     // clicked sign in button
     @IBAction func signInBtn_click(_ sender: Any) {
         print("sign in pressed")
+        
+        // hide keyboard
+        self.view.endEditing(true)
+        
+        // if textFields are empty
+        if usernameTxt.text!.isEmpty || passwordTxt.text!.isEmpty {
+            
+            // show alert message
+            let alert = UIAlertController(title: "Please", message: "fill in fields", preferredStyle: UIAlertControllerStyle.alert)
+            let ok = UIAlertAction(title: "ok", style: UIAlertActionStyle.cancel, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        
+        
+        // login func
+        PFUser.logInWithUsername(inBackground: usernameTxt.text!, password: passwordTxt.text!) { (user: PFUser?, error: Error?) in
+            if error == nil {
+                
+                // remember user or save in App Memory did the user login or not
+                UserDefaults.standard.set(user!.username, forKey: "username")
+                UserDefaults.standard.synchronize()
+                
+                // call login func from AppDelegate.swift class
+                let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.login()
+                
+            }
+        }
+        
     }
 
     
