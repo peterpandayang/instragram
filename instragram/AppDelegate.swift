@@ -22,9 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let parseConfig = ParseClientConfiguration { (ParseMutableClientConfiguration) in
         
             // accessing Heroku App via id & keys
-            ParseMutableClientConfiguration.applicationId = "instagramIDyuebingyang"
+            /*ParseMutableClientConfiguration.applicationId = "instagramIDyuebingyang"
             ParseMutableClientConfiguration.clientKey = "instagramKeyyuebingyang"
             ParseMutableClientConfiguration.server = "http://instagramyuebingyang.herokuapp.com/parse"
+            */
+            
+            
+            // accessing Back4App app
+            ParseMutableClientConfiguration.applicationId = "tNPLCd8PeFRiqfLIzd6dzh3WeYD5AOBOi5y5E5u1"
+            ParseMutableClientConfiguration.clientKey = "LAukzH6aKQwbYOTITj1UAy4poxY4HxhHXAdrYgMB"
+            ParseMutableClientConfiguration.server = "https://parseapi.back4app.com"
+
         
         }
         
