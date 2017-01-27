@@ -25,8 +25,9 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBOutlet weak var bioTxt: UITextField!
     @IBOutlet weak var webTxt: UITextField!
     
-    @IBOutlet weak var signUpBtn: UIScrollView!
-    @IBOutlet weak var cancelBtn: UIScrollView!
+    
+    @IBOutlet weak var signUpBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     
     // scrollView
@@ -48,6 +49,7 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         scrollView.contentSize.height = self.view.frame.height
         scrollViewHeight = scrollView.frame.size.height
         
+        
         // check notificatons if keyboard is shown or not
         NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard(notification:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
@@ -58,6 +60,8 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         self.view.isUserInteractionEnabled = true
         self.view.addGestureRecognizer(hideTap)
         
+        
+        
         // round ava
         avaImg.layer.cornerRadius = avaImg.frame.size.width / 2
         avaImg.clipsToBounds = true
@@ -67,6 +71,21 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         avaTap.numberOfTapsRequired = 1
         avaImg.isUserInteractionEnabled = true
         avaImg.addGestureRecognizer(avaTap)
+        
+        
+        // alignment
+        avaImg.frame = CGRect(x: self.view.frame.size.width / 2 - 40, y: 40, width: 80, height: 80)
+        usernameTxt.frame = CGRect(x: 10, y: avaImg.frame.origin.y + 90, width: self.view.frame.size.width - 20, height: 30)
+        passwordTxt.frame = CGRect(x: 10, y: usernameTxt.frame.origin.y + 40, width: self.view.frame.size.width - 20, height: 30)
+        repeatPassword.frame = CGRect(x: 10, y: passwordTxt.frame.origin.y + 40, width: self.view.frame.size.width - 20, height: 30)
+        emailTxt.frame = CGRect(x: 10, y: repeatPassword.frame.origin.y + 60, width: self.view.frame.size.width - 20, height: 30)
+        fullnameTxt.frame = CGRect(x: 10, y: emailTxt.frame.origin.y + 40, width: self.view.frame.size.width - 20, height: 30)
+        bioTxt.frame = CGRect(x: 10, y: fullnameTxt.frame.origin.y + 40, width: self.view.frame.size.width - 20, height: 30)
+        webTxt.frame = CGRect(x: 10, y: bioTxt.frame.origin.y + 40, width: self.view.frame.size.width - 20, height: 30)
+        
+        signUpBtn.frame = CGRect(x: 20, y: webTxt.frame.origin.y + 50, width: self.view.frame.size.width / 4, height: 30)
+        cancelBtn.frame = CGRect(x: self.view.frame.size.width - self.view.frame.size.width / 4 - 20, y: signUpBtn.frame.origin.y, width: self.view.frame.size.width / 4, height: 30)
+        
         
     }
     
@@ -117,8 +136,8 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     
-    // click sign up
     @IBAction func signUpBtn_click(_ sender: Any) {
+        
         print("singup pressed")
         
         // dismiss keyboard
@@ -184,13 +203,18 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             }
         }
         
-        
     }
+    
     
     
     // click cancel
     @IBAction func cancelBtn_click(_ sender: Any) {
+        
+        // hide keyboard when pressed cancel
+        self.view.endEditing(true)
+        
         self.dismiss(animated: true, completion: nil)
+    
     }
     
     
