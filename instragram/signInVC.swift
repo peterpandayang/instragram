@@ -92,6 +92,15 @@ class signInVC: UIViewController {
                 appDelegate.login()
                 
             }
+            else {
+                
+                // show alert message
+                let alert = UIAlertController(title: "Please", message: error!.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                let ok = UIAlertAction(title: "ok", style: UIAlertActionStyle.cancel, handler: nil)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+                
+            }
         }
         
     }

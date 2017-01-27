@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		850C6E331E3BBEB80068C568 /* homeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C6E321E3BBEB80068C568 /* homeVC.swift */; };
+		850C6E351E3BBEED0068C568 /* headerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C6E341E3BBEED0068C568 /* headerView.swift */; };
+		850C6E371E3BC1320068C568 /* pictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C6E361E3BC1320068C568 /* pictureCell.swift */; };
 		8539B0741E3361AA0097B4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539B0731E3361AA0097B4BE /* AppDelegate.swift */; };
 		8539B0791E3361AA0097B4BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8539B0771E3361AA0097B4BE /* Main.storyboard */; };
 		8539B07B1E3361AA0097B4BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8539B07A1E3361AA0097B4BE /* Assets.xcassets */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		850C6E321E3BBEB80068C568 /* homeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeVC.swift; sourceTree = "<group>"; };
+		850C6E341E3BBEED0068C568 /* headerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = headerView.swift; sourceTree = "<group>"; };
+		850C6E361E3BC1320068C568 /* pictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pictureCell.swift; sourceTree = "<group>"; };
 		8539B0701E3361AA0097B4BE /* instragram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instragram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8539B0731E3361AA0097B4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8539B0781E3361AA0097B4BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +120,9 @@
 				8539B07C1E3361AA0097B4BE /* LaunchScreen.storyboard */,
 				853DF13C1E3B02F000A28099 /* Pacifico.ttf */,
 				8539B07F1E3361AA0097B4BE /* Info.plist */,
+				850C6E321E3BBEB80068C568 /* homeVC.swift */,
+				850C6E341E3BBEED0068C568 /* headerView.swift */,
+				850C6E361E3BC1320068C568 /* pictureCell.swift */,
 			);
 			path = instragram;
 			sourceTree = "<group>";
@@ -211,10 +220,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				850C6E371E3BC1320068C568 /* pictureCell.swift in Sources */,
 				8539B0A11E3368D30097B4BE /* signUpVC.swift in Sources */,
 				8539B0861E3364E90097B4BE /* signInVC.swift in Sources */,
+				850C6E331E3BBEB80068C568 /* homeVC.swift in Sources */,
 				8539B0741E3361AA0097B4BE /* AppDelegate.swift in Sources */,
 				8539B0A31E3368E70097B4BE /* resetPasswordVC.swift in Sources */,
+				850C6E351E3BBEED0068C568 /* headerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

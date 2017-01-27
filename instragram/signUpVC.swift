@@ -190,6 +190,7 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         let avaFile = PFFile(name: "ava.jpg", data: avaData!)
         user["ava"] = avaFile
         
+        
         // save data in server
         user.signUpInBackground { (success, error: Error?) in
             if success {
@@ -205,7 +206,13 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 
             }
             else {
-                print(error?.localizedDescription as Any)
+                
+                // show alert message
+                let alert = UIAlertController(title: "Please", message: error!.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                let ok = UIAlertAction(title: "ok", style: UIAlertActionStyle.cancel, handler: nil)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+
             }
         }
         
