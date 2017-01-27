@@ -26,6 +26,8 @@
 		8539B09F1E3367480097B4BE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8539B09D1E3367480097B4BE /* Parse.framework */; };
 		8539B0A11E3368D30097B4BE /* signUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539B0A01E3368D30097B4BE /* signUpVC.swift */; };
 		8539B0A31E3368E70097B4BE /* resetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539B0A21E3368E70097B4BE /* resetPasswordVC.swift */; };
+		853DF13D1E3B02F000A28099 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 853DF13C1E3B02F000A28099 /* Pacifico.ttf */; };
+		853DF13F1E3B050900A28099 /* wallpapers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 853DF13E1E3B050900A28099 /* wallpapers.jpg */; };
 		854FEAD51E349935000BDC61 /* pp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 854FEAD41E349935000BDC61 /* pp.jpg */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		8539B09D1E3367480097B4BE /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8539B0A01E3368D30097B4BE /* signUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpVC.swift; sourceTree = "<group>"; };
 		8539B0A21E3368E70097B4BE /* resetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resetPasswordVC.swift; sourceTree = "<group>"; };
+		853DF13C1E3B02F000A28099 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
+		853DF13E1E3B050900A28099 /* wallpapers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpapers.jpg; sourceTree = "<group>"; };
 		854FEAD41E349935000BDC61 /* pp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pp.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,10 +107,12 @@
 				8539B0851E3364E90097B4BE /* signInVC.swift */,
 				8539B0A01E3368D30097B4BE /* signUpVC.swift */,
 				8539B0A21E3368E70097B4BE /* resetPasswordVC.swift */,
+				853DF13E1E3B050900A28099 /* wallpapers.jpg */,
 				8539B0731E3361AA0097B4BE /* AppDelegate.swift */,
 				8539B0771E3361AA0097B4BE /* Main.storyboard */,
 				8539B07A1E3361AA0097B4BE /* Assets.xcassets */,
 				8539B07C1E3361AA0097B4BE /* LaunchScreen.storyboard */,
+				853DF13C1E3B02F000A28099 /* Pacifico.ttf */,
 				8539B07F1E3361AA0097B4BE /* Info.plist */,
 			);
 			path = instragram;
@@ -189,7 +195,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				853DF13F1E3B050900A28099 /* wallpapers.jpg in Resources */,
 				8539B07E1E3361AA0097B4BE /* LaunchScreen.storyboard in Resources */,
+				853DF13D1E3B02F000A28099 /* Pacifico.ttf in Resources */,
 				854FEAD51E349935000BDC61 /* pp.jpg in Resources */,
 				8539B07B1E3361AA0097B4BE /* Assets.xcassets in Resources */,
 				8539B0791E3361AA0097B4BE /* Main.storyboard in Resources */,

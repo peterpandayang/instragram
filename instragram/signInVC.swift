@@ -25,6 +25,9 @@ class signInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Pacifico font of label
+        label.font = UIFont(name: "Pacifico", size: 25)
+        
         
         // alignment
         label.frame = CGRect(x: 10, y: 80, width: self.view.frame.size.width - 20, height: 50)
@@ -41,6 +44,12 @@ class signInVC: UIViewController {
         self.view.isUserInteractionEnabled = true
         self.view.addGestureRecognizer(hideTap)
         
+        
+        // background
+        let bg = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
+        bg.image = UIImage(named: "wallpapers.jpg")
+        bg.layer.zPosition = -1
+        self.view.addSubview(bg)
         
     }
     

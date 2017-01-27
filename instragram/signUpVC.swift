@@ -87,6 +87,12 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         cancelBtn.frame = CGRect(x: self.view.frame.size.width - self.view.frame.size.width / 4 - 20, y: signUpBtn.frame.origin.y, width: self.view.frame.size.width / 4, height: 30)
         
         
+        // background
+        let bg = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
+        bg.image = UIImage(named: "wallpapers.jpg")
+        bg.layer.zPosition = -1
+        self.view.addSubview(bg)
+        
     }
     
     
