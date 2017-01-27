@@ -35,8 +35,21 @@ class signInVC: UIViewController {
         signUpBtn.frame = CGRect(x: self.view.frame.size.width - self.view.frame.size.width / 4 - 20, y: signInBtn.frame.origin.y, width: self.view.frame.size.width / 4, height: 30)
         
         
+        // tap to hide keyboard
+        let hideTap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        hideTap.numberOfTapsRequired = 1;
+        self.view.isUserInteractionEnabled = true
+        self.view.addGestureRecognizer(hideTap)
+        
         
     }
+    
+
+    // hide keyboard function
+    func hideKeyboard(recognizer: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     
     // clicked sign in button
     @IBAction func signInBtn_click(_ sender: Any) {

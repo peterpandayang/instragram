@@ -19,6 +19,20 @@ class resetPasswordVC: UIViewController {
     @IBOutlet weak var cancelBtn: UIButton!
     
     
+    // default func
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // alignment
+        emailTxt.frame = CGRect(x: 10, y: 120, width: self.view.frame.size.width - 20, height: 30)
+        resetbtn.frame = CGRect(x: 20, y: emailTxt.frame.origin.y + 50, width: self.view.frame.size.width / 4, height: 30)
+        cancelBtn.frame = CGRect(x: self.view.frame.size.width - self.view.frame.size.width / 4 - 20, y: resetbtn.frame.origin.y, width: self.view.frame.size.width / 4, height: 30)
+        
+        
+        
+    }
+    
+    
     // click reset button
     @IBAction func resetBtn_click(_ sender: Any) {
         
@@ -67,6 +81,9 @@ class resetPasswordVC: UIViewController {
     
     // click cancel button
     @IBAction func cancelBtn_click(_ sender: Any) {
+        
+        // hide keyboard when pressed cancel
+        self.view.endEditing(true)
         
         self.dismiss(animated: true, completion: nil)
         
