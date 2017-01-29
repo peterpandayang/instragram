@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="dnX-B1-uzq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -262,6 +262,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
+                    <connections>
+                        <segue destination="X7X-L7-WP0" kind="relationship" relationship="viewControllers" id="In1-tZ-Xch"/>
+                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xkA-QC-5wA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -270,7 +273,7 @@
         <!--HomeVC-->
         <scene sceneID="nWr-yT-eJb">
             <objects>
-                <collectionViewController id="dnX-B1-uzq" customClass="HomeVC" customModule="instragram" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="homeVC" id="dnX-B1-uzq" customClass="homeVC" customModule="instragram" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5cN-F4-Yo6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -315,12 +318,13 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="www.udemy.com" textAlignment="natural" id="DW7-5x-fyE">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="www.udemy.com" textAlignment="natural" id="DW7-5x-fyE">
                                     <rect key="frame" x="19" y="145" width="335" height="46"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                 </textView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some aspects of life" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FxA-ka-Rru">
                                     <rect key="frame" x="19" y="189" width="311" height="63"/>
@@ -376,7 +380,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <state key="normal" title="edit profile">
+                                    <state key="normal">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -401,10 +405,30 @@
                             <outlet property="delegate" destination="dnX-B1-uzq" id="YNV-Vb-MUT"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="4ql-y2-KEV"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYj-H7-Z3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1907.5" y="149.5"/>
+            <point key="canvasLocation" x="2494.5" y="149.5"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="jYw-Zh-2aO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X7X-L7-WP0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="l6v-9V-wwE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hQa-r6-UVH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dnX-B1-uzq" kind="relationship" relationship="rootViewController" id="vRS-K3-CHT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YwA-xV-LrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1989" y="148"/>
         </scene>
     </scenes>
     <resources>
