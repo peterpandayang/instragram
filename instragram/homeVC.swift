@@ -11,7 +11,18 @@ import Parse
 
 
 class homeVC: UICollectionViewController {
-
+    
+    // refresher variable
+    var refresher : UIRefreshControl!
+    
+    // size pf page
+    var page: Int = 10
+    
+    var uuidArray = [String]()
+    var picArray = [PFFile]()
+    
+    
+    // default func
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,15 +30,90 @@ class homeVC: UICollectionViewController {
         collectionView?.backgroundColor = .white
         
         // title at the top
-        self.navigationItem.title = PFUser.current()?.username?.uppercased()
+        self.navigationItem.title = PFUser.current()!.username?.uppercased()
+        
+        // pull the refresh
+        refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(homeVC.refresh), for: UIControlEvents.valueChanged)
+        collectionView?.addSubview(refresher)
+        
+        // load posts func
+        loadPosts()
         
     }
+    
+    
+    
+    // refresh function
+    func refresh(){
+        
+        // reload datas info
+        collectionView?.reloadData()
+        
+        // stop animating of refresher
+        refresher.endRefreshing()
+    }
+    
+    
+    // load post func
+    func loadPosts(){
+        let query = PFQuery(className: "posts")
+        query.whereKey("username", equalTo: PFUser.current()!.username as Any)
+        query.limit = page
+        query.findObjectsInBackground (block: { (objects, error) -> Void in
+            if error == nil {
+                
+                // clean up
+                self.uuidArray.removeAll(keepingCapacity: false)
+                self.picArray.removeAll(keepingCapacity: false)
+                
+                
+                // find related tpo our request
+                for object in objects! {
+                    
+                    // add found data to arrays (holders)
+                    self.uuidArray.append(object.value(forKey: "uuid") as! String)
+                    self.picArray.append(object.value(forKey: "pic") as! PFFile)
+                }
+                
+                self.collectionView?.reloadData()
+                
+            }
+            else {
+                print(error!.localizedDescription)
+            }
+        })
+        
+    }
+    
+    
 
 
 
-
+    // cell number
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return picArray.count * 20
+    }
+    
+    
+    // cell configuration
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // define cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! pictureCell
+        
+        // get picture from picArray
+        picArray[0].getDataInBackground { (data, error) -> Void in
+            if error == nil {
+                cell.picImg.image = UIImage(data: data!)
+            }
+            else {
+                print(error!.localizedDescription)
+            }
+        }
+        
+        return cell
+        
     }
     
     
