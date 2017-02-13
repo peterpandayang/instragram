@@ -117,7 +117,7 @@ class homeVC: UICollectionViewController {
     }
     
     
-    
+    // header config
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         
@@ -131,13 +131,41 @@ class homeVC: UICollectionViewController {
         header.webTxt.sizeToFit()
         header.bioLbl.text = PFUser.current()?.object(forKey: "bio") as? String
         header.bioLbl.sizeToFit()
-        header.button.setTitle("edit profile", for: UIControlState.normal)
         
         let avaQuery = PFUser.current()?.object(forKey: "ava") as! PFFile
         avaQuery.getDataInBackground { (data: Data?, error: Error?) in
             header.avaImg.image = UIImage(data: data!)
-            
         }
+        
+        header.button.setTitle("edit profile", for: UIControlState.normal)
+        
+        // STEP 2. Count statistics
+        // count total posts
+        let posts = PFQuery(className: "posts")
+        posts.whereKey("username", equalTo: PFUser.current()!.username!)
+        posts.countObjectsInBackground (block: { (count, error) -> Void in
+            if error == nil {
+                header.posts.text = "\(count)"
+            }
+        })
+        
+        // count total followings
+        let followers = PFQuery(className: "follow")
+        followers.whereKey("following", equalTo: PFUser.current()!.username!)
+        followers.countObjectsInBackground (block: { (count, error) -> Void in
+            if error == nil {
+                header.followers.text = "\(count)"
+            }
+        })
+        
+        // count total followers
+        let followings = PFQuery(className: "follow")
+        followings.whereKey("follower", equalTo: PFUser.current()!.username!)
+        followings.countObjectsInBackground (block: { (count, error) -> Void in
+            if error == nil {
+                header.followings.text = "\(count)"
+            }
+        })
         
         return header
         
