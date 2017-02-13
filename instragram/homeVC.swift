@@ -167,9 +167,63 @@ class homeVC: UICollectionViewController {
             }
         })
         
+        // STEP 3. Implement tap gestures
+        // tap posts
+        let postsTap = UITapGestureRecognizer(target: self, action: #selector(homeVC.postsTap))
+        postsTap.numberOfTapsRequired = 1
+        header.posts.isUserInteractionEnabled = true
+        header.posts.addGestureRecognizer(postsTap)
+        
+        // tap followers
+        let followersTap = UITapGestureRecognizer(target: self, action: #selector(homeVC.followersTap))
+        followersTap.numberOfTapsRequired = 1
+        header.followers.isUserInteractionEnabled = true
+        header.followers.addGestureRecognizer(followersTap)
+        
+        // tap followings
+        let followingsTap = UITapGestureRecognizer(target: self, action: #selector(homeVC.followingsTap))
+        followingsTap.numberOfTapsRequired = 1
+        header.followings.isUserInteractionEnabled = true
+        header.followings.addGestureRecognizer(followingsTap)
+        
         return header
         
     }
+    
+    // taped posts label
+    func postsTap() {
+        if !picArray.isEmpty {
+            let index = IndexPath(item: 0, section: 0)
+            self.collectionView?.scrollToItem(at: index, at: UICollectionViewScrollPosition.top, animated: true)
+        }
+    }
+    
+    // tapped followers label
+    func followersTap() {
+        
+        user = PFUser.current()!.username!
+        category = "followers"
+        
+        // make references to followersVC
+        let followers = self.storyboard?.instantiateViewController(withIdentifier: "followersVC") as! followersVC
+        
+        // present
+        self.navigationController?.pushViewController(followers, animated: true)
+    }
+    
+    // tapped followings label
+    func followingsTap() {
+        
+        user = PFUser.current()!.username!
+        category = "followings"
+        
+        // make reference to followersVC
+        let followings = self.storyboard?.instantiateViewController(withIdentifier: "followersVC") as! followersVC
+        
+        // present
+        self.navigationController?.pushViewController(followings, animated: true)
+    }
+
 
     
     /*
