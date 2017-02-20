@@ -26,6 +26,9 @@ class homeVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // always vertical scroll
+        self.collectionView?.alwaysBounceVertical = true
+        
         // background color
         collectionView?.backgroundColor = .white
         

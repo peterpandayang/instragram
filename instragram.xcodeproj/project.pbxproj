@@ -32,6 +32,7 @@
 		853DF13D1E3B02F000A28099 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 853DF13C1E3B02F000A28099 /* Pacifico.ttf */; };
 		853DF13F1E3B050900A28099 /* wallpapers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 853DF13E1E3B050900A28099 /* wallpapers.jpg */; };
 		854FEAD51E349935000BDC61 /* pp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 854FEAD41E349935000BDC61 /* pp.jpg */; };
+		859731521E5AEFBD00EDDF4B /* guestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859731511E5AEFBD00EDDF4B /* guestVC.swift */; };
 		85D495811E523055006E6B9C /* followersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D495801E523055006E6B9C /* followersVC.swift */; };
 		85D495831E523084006E6B9C /* followersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D495821E523084006E6B9C /* followersCell.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		853DF13C1E3B02F000A28099 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		853DF13E1E3B050900A28099 /* wallpapers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpapers.jpg; sourceTree = "<group>"; };
 		854FEAD41E349935000BDC61 /* pp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pp.jpg; sourceTree = "<group>"; };
+		859731511E5AEFBD00EDDF4B /* guestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = guestVC.swift; sourceTree = "<group>"; };
 		85D495801E523055006E6B9C /* followersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = followersVC.swift; sourceTree = "<group>"; };
 		85D495821E523084006E6B9C /* followersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = followersCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +131,7 @@
 				850C6E361E3BC1320068C568 /* pictureCell.swift */,
 				85D495801E523055006E6B9C /* followersVC.swift */,
 				85D495821E523084006E6B9C /* followersCell.swift */,
+				859731511E5AEFBD00EDDF4B /* guestVC.swift */,
 			);
 			path = instragram;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				850C6E371E3BC1320068C568 /* pictureCell.swift in Sources */,
+				859731521E5AEFBD00EDDF4B /* guestVC.swift in Sources */,
 				8539B0A11E3368D30097B4BE /* signUpVC.swift in Sources */,
 				85D495831E523084006E6B9C /* followersCell.swift in Sources */,
 				85D495811E523055006E6B9C /* followersVC.swift in Sources */,
