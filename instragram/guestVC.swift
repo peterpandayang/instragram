@@ -34,9 +34,9 @@ class guestVC: UICollectionViewController {
         self.navigationItem.title = guestname.last?.uppercased()
         
         // new back button
-        self.navigationItem.hidesBackButton = true
-        let backBtn = UIBarButtonItem(image: UIImage(named: "back.png"), style: .plain, target: self, action: #selector(guestVC.back(_:)))
-        self.navigationItem.leftBarButtonItem = backBtn
+//        self.navigationItem.hidesBackButton = true
+//        let backBtn = UIBarButtonItem(image: UIImage(named: "back.png"), style: .plain, target: self, action: #selector(guestVC.back(_:)))
+//        self.navigationItem.leftBarButtonItem = backBtn
         
         // swipe to go back
         let backSwipe = UISwipeGestureRecognizer(target: self, action: #selector(guestVC.back(_:)))
@@ -68,8 +68,9 @@ class guestVC: UICollectionViewController {
     
     // refresh function
     func refresh() {
+        collectionView?.reloadData()
         refresher.endRefreshing()
-        loadPosts()
+//        loadPosts()
     }
 
     
