@@ -39,7 +39,7 @@ class followersCell: UITableViewCell {
                     self.followBtn.setTitle("FOLLOWING", for: UIControlState())
                     self.followBtn.backgroundColor = .green
                 } else {
-                    print(error?.localizedDescription)
+                    print(error?.localizedDescription as Any)
                 }
             })
         }
@@ -58,13 +58,13 @@ class followersCell: UITableViewCell {
                                 self.followBtn.setTitle("FOLLOW", for: UIControlState())
                                 self.followBtn.backgroundColor = .lightGray
                             } else {
-                                print(error?.localizedDescription)
+                                print(error?.localizedDescription as Any)
                             }
                         })
                     }
                     
                 } else {
-                    print(error?.localizedDescription)
+                    print(error?.localizedDescription as Any)
                 }
             })
         }
