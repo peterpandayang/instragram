@@ -127,7 +127,7 @@ class homeVC: UICollectionViewController {
         //define header
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! headerView
         
-        
+        // STEP 1. Get user data
         // get users data with connections to columns of PFUser class
         header.fullNameLbl.text = (PFUser.current()!.object(forKey: "fullname") as? String)?.uppercased()
         header.webTxt.text = PFUser.current()?.object(forKey: "web") as? String
@@ -227,7 +227,24 @@ class homeVC: UICollectionViewController {
         self.navigationController?.pushViewController(followings, animated: true)
     }
 
-
+    // clicked logout
+    @IBAction func logout(_ sender: Any) {
+        
+        PFUser.logOutInBackground { (error: Error?) -> Void in
+            if error == nil {
+            
+                // remove logged in user from App memory
+                UserDefaults.standard.removeObject(forKey: "username")
+                UserDefaults.standard.synchronize()
+                
+                let signin = self.storyboard?.instantiateViewController(withIdentifier: "signInVC") as! signInVC
+                let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController = signin
+                
+            }
+        }
+        
+    }
     
     /*
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
