@@ -109,6 +109,13 @@ class guestVC: UICollectionViewController {
         return picArray.count
     }
     
+    // cell size
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        let size = CGSize(width: self.view.frame.size.width / 3, height: self.view.frame.size.width / 3)
+        return size
+    }
+
+    
     // cell config
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         

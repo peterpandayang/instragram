@@ -95,7 +95,14 @@ class homeVC: UICollectionViewController {
 
     // cell number
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return picArray.count * 20
+        return picArray.count
+    }
+    
+    
+    // cell size
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        let size = CGSize(width: self.view.frame.size.width / 3, height: self.view.frame.size.width / 3)
+        return size
     }
     
     
@@ -106,7 +113,7 @@ class homeVC: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! pictureCell
         
         // get picture from picArray
-        picArray[0].getDataInBackground { (data, error) -> Void in
+        picArray[indexPath.row].getDataInBackground { (data, error) -> Void in
             if error == nil {
                 cell.picImg.image = UIImage(data: data!)
             }
